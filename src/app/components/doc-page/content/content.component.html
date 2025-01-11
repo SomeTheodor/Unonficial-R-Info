@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="row">
+    <div *ngIf="data.length > 0; else noData" class="col-12">
+      <!-- Título de la sección -->
+      <h2 class="text-center mb-5 text-dark font-weight-bold">Lista de Contenidos</h2>
+
+      <!-- Tarjetas para cada elemento de la lista -->
+      <div class="card mb-4 shadow-sm border-light rounded" *ngFor="let item of data">
+        <div class="card-header bg-info text-white rounded-top">
+          <h5 class="mb-0">{{ item.nombre }}</h5>
+        </div>
+        <div class="card-body">
+          <!-- Descripción general de cada ítem -->
+          <p class="card-text text-muted">{{ item.texto }}</p>
+
+          <!-- Subtítulos como lista -->
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let subtitle of item.subtitulos"
+            >
+              <div>
+                <h6 class="text-primary">{{ subtitle.nombre }}</h6>
+                <p class="text-muted">{{ subtitle.texto }}</p>
+              </div>
+              <!-- Icono opcional de acción si es necesario -->
+              <button class="btn btn-outline-info btn-sm">
+                Ver más
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensaje cuando no hay datos -->
+    <ng-template #noData>
+      <div class="alert alert-warning text-center w-100">
+        No hay contenidos disponibles en este momento.
+      </div>
+    </ng-template>
+  </div>
+</div>
