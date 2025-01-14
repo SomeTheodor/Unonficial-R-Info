@@ -1,0 +1,25 @@
+/* Ajustes generales */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Sidebar */
+app-sidebar {
+  height: 100%;
+  overflow-y: auto; /* Scroll en caso de que el contenido sea muy largo */
+  border-right: 1px solid #ddd;
+}
+
+/* Contenido principal */
+app-content {
+  background-color: #f9f9f9; /* Fondo ligero para diferenciarlo del sidebar */
+  min-height: calc(100vh - 56px); /* Altura mínima restando el tamaño del navbar */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra interna suave */
+}
+
+/* Asegura que el contenido dentro de app-content tenga márgenes */
+app-content > * {
+  margin-bottom: 1rem;
+}
