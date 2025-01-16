@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
-  <div class="container">
+  <div class="container-fluid">
     <!-- Botón de Sidebar, solo visible en pantallas pequeñas -->
     <button
-      *ngIf="showSidebarButton"
-      class="btn btn-outline-light d-lg-none d-flex align-items-center"
+      class="btn btn-outline-light d-lg-none d-flex align-items-center me-3"
+      *ngIf="showSidebarButton()"
       (click)="toggleSidebar()">
       <i class="bi bi-list me-2"></i> Sidebar
     </button>
@@ -14,27 +14,37 @@
     </a>
 
     <!-- Botón de menú responsive -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Links de navegación -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <!-- Enlace de descarga -->
-        <li class="nav-item">
-          <a class="nav-link mx-2" href="donwloads/r-Info3.1.jar">
-            <i class="bi bi-download"></i> Descargar
-          </a>
-        </li>
-
-        <!-- Enlace a la documentación -->
-        <li class="nav-item">
-          <a class="nav-link mx-2" routerLink="/doc" routerLinkActive="active">
-            <i class="bi bi-file-earmark-text"></i> Documentación
-          </a>
-        </li>
-      </ul>
+    <!-- Offcanvas Navbar -->
+    <div class="offcanvas offcanvas-end bg-primary text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <!-- Enlace de descarga -->
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-white" href="donwloads/r-Info3.1.jar">
+              <i class="bi bi-download"></i> Descargar
+            </a>
+          </li>
+          <!-- Enlace a la documentación -->
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-white" routerLink="/doc" routerLinkActive="active">
+              <i class="bi bi-file-earmark-text"></i> Documentación
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

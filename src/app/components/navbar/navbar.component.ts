@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterModule} from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SidebarService } from '../../services/sidebar.service';
 
@@ -7,7 +7,7 @@ import { SidebarService } from '../../services/sidebar.service';
   selector: 'app-navbar',
   imports: [RouterModule, RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
   // Controla la visibilidad del botón de Sidebar
@@ -27,10 +27,15 @@ export class NavbarComponent implements OnInit {
   }
 
   private updateSidebarButton(): void {
-    this.showSidebarButton.set(this.router.url.startsWith('/doc'));
+    const isDocRoute = this.router.url.startsWith('/doc');
+    this.showSidebarButton.set(isDocRoute);
+
+    // Depuración para verificar la lógica
+    console.log(`Current route: ${this.router.url}, Show button: ${isDocRoute}`);
   }
 
   toggleSidebar(): void {
     this.sidebarService.toggleSidebar(); // Alterna la visibilidad usando el servicio
   }
 }
+
