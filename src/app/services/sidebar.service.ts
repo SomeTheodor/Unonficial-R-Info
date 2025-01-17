@@ -4,16 +4,27 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class SidebarService {
-  // Estado del sidebar como un Signal
+  // Estado del sidebar (visible o no)
   isSidebarVisible = signal(false);
 
-  // Método para alternar el estado del sidebar
+  // Nuevo estado para expansión a pantalla completa
+  isSidebarExpanded = signal(false);
+
+  // Alternar visibilidad
   toggleSidebar(): void {
     this.isSidebarVisible.update((visible) => !visible);
   }
 
-  // Método para establecer el estado del sidebar directamente
-  setSidebarVisibility(visible: boolean): void {
-    this.isSidebarVisible.set(visible);
+  // Alternar expansión
+  toggleSidebarExpand(): void {
+    this.isSidebarExpanded.update((expanded) => !expanded);
+    this.isSidebarVisible.set(true); // Asegurar que el sidebar sea visible cuando se expande
+  }
+  hideSidebar(): void {
+    this.isSidebarVisible.set(false);
+    this.isSidebarExpanded.set(false);
+
   }
 }
+
+
