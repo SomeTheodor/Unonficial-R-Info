@@ -1,0 +1,27 @@
+.sidebar {
+  width: 280px;
+  transition: all 0.3s;
+}
+.btn-toggle {
+  font-weight: 500;
+  color: #333;
+  background-color: transparent;
+}
+.btn-toggle:hover {
+  color: #0056b3;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+.sidebar-link:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+.expanded {
+  width: 70vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1050;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}

@@ -8,17 +8,20 @@ import { SidebarService } from '../../../services/sidebar.service';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  // Datos del sidebar
   @Input() data: SidebarItem[] = [];
 
   constructor(private sidebarService: SidebarService) {}
 
-  // Clase dinámica para visibilidad
+  closeSidebar(): void {
+    this.sidebarService.hideSidebar();
+  }
+
   sidebarClass = computed(() => {
     const baseClass = 'responsive-sidebar bg-light shadow-sm rounded';
-    return this.sidebarService.isSidebarVisible()
-      ? `${baseClass} d-block`
-      : `${baseClass} d-none d-lg-block`;
+    if (this.sidebarService.isSidebarExpanded()) {
+      return `${baseClass} expanded`;
+    }
+    return this.sidebarService.isSidebarVisible() ? `${baseClass} visible` : `${baseClass} hidden`;
   });
 }
 

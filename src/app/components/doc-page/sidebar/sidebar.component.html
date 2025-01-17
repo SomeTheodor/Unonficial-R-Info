@@ -1,27 +1,23 @@
-<div [ngClass]="sidebarClass()" id="sidebarMenu">
+<div [ngClass]="sidebarClass()" id="sidebarMenu" class="sidebar bg-light border-end vh-100">
   <div class="p-3">
+    <!-- Botón de cierre -->
+    <button
+  class="btn btn-close float-end d-md-none"
+  (click)="closeSidebar()"
+  aria-label="Cerrar sidebar">
+</button>
+
     <!-- Título del sidebar -->
-    <a
-      href="/"
-      class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"
-    >
-      <svg
-        class="bi pe-none me-2"
-        width="30"
-        height="24"
-        aria-label="Bootstrap"
-      >
-        <use xlink:href="#bootstrap" />
-      </svg>
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 text-dark text-decoration-none border-bottom">
+      <i class="bi bi-layout-text-sidebar fs-4 me-2 text-primary"></i>
       <span class="fs-5 fw-semibold">Contenidos</span>
     </a>
 
     <!-- Lista de títulos y subtítulos -->
     <ul class="list-unstyled ps-0">
       <li class="mb-2" *ngFor="let title of data">
-        <!-- Botón de título con ícono para expandir -->
         <button
-          class="btn btn-toggle d-inline-flex align-items-center w-100 text-start rounded border-0 bg-transparent px-2 py-1"
+          class="btn btn-toggle d-flex align-items-center w-100 text-start rounded px-3 py-2"
           data-bs-toggle="collapse"
           [attr.data-bs-target]="'#collapse-' + title.id"
           aria-expanded="false"
@@ -29,13 +25,12 @@
           <i class="bi bi-folder me-2 text-primary"></i> {{ title.nombre }}
         </button>
 
-        <!-- Subtítulos colapsables -->
         <div class="collapse ps-3" [id]="'collapse-' + title.id">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li *ngFor="let subtitle of title.subtitulos" class="mb-1">
               <a
                 href="#"
-                class="link-dark d-inline-flex align-items-center text-decoration-none rounded px-2 py-1"
+                class="d-flex align-items-center text-dark text-decoration-none rounded px-3 py-1 sidebar-link"
               >
                 <i class="bi bi-dot me-2 text-secondary"></i> {{ subtitle.nombre }}
               </a>
