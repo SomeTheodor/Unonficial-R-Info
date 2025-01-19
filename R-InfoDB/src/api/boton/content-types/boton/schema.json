@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "botons",
+  "info": {
+    "singularName": "boton",
+    "pluralName": "botons",
+    "displayName": "boton"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    }
+  }
+}
