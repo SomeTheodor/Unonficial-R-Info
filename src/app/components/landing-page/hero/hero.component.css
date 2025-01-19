@@ -1,0 +1,78 @@
+.hero {
+  height: 100vh; /* Ajusta el alto de la sección */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.hero h1{
+  font-size: 3rem; /* Tamaño grande para el título */
+  margin-bottom: 20px;
+  color:white !important;
+}
+
+.hero .lead {
+  font-size: 1.25rem; /* Tamaño de texto para la descripción */
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background-color 0.3s, border 0.3s;
+}
+
+.hero .btn-outline-secondary {
+  border-color: #ff0202; /* Gris para el botón secundario */
+  color: #ffffff;
+}
+
+.hero .btn-outline-secondary:hover {
+  background-color: #ff0202; /* Color de fondo al hacer hover */
+  color: white;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 20px; /* Aumenta el padding en pantallas pequeñas para más espacio */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem; /* Ajustar tamaño del título */
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1.5rem; /* Aumenta el tamaño del texto */
+  }
+
+  .hero .lead {
+    font-size: 1.25rem; /* Ajustar tamaño del texto de la descripción */
+  }
+
+  .hero .col-lg-6 {
+    width: 100%; /* Asegura que el contenido ocupe el 100% del ancho en pantallas pequeñas */
+  }
+
+  .hero .btn {
+    width: 100%; /* Hacer los botones más grandes y adaptables en pantallas pequeñas */
+    padding: 15px;
+ /* Aumentar el tamaño de los botones */
+  }
+
+  .hero .d-grid {
+    justify-content: center; /* Centra los botones */
+  }
+}

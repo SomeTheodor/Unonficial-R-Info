@@ -1,0 +1,72 @@
+/* Estilo para el título */
+#about .display-5 {
+  font-size: 3rem; /* Tamaño grande */
+  font-weight: bold;
+  color: #343a40; /* Color oscuro para el texto */
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Estilo para el texto de la descripción */
+#about .lead {
+  font-size: 1.2rem;
+  color: #6c757d; /* Color gris para texto secundario */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Estilo para las imágenes */
+#about img {
+  max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: block; /* Asegura que la imagen sea un bloque */
+  margin: 0 auto; /* Esto centra la imagen en su contenedor */
+}
+
+/* Estilo para los botones */
+#about .btn-primary {
+  background-color: #007bff; /* Azul para el botón primario */
+  border: 2px solid #007bff;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 50px; /* Bordes redondeados */
+  transition: background-color 0.3s, border 0.3s;
+}
+
+#about .btn-primary:hover {
+  background-color: #0056b3; /* Cambia el color de fondo en hover */
+  border-color: #0056b3;
+}
+
+/* Estilo para el botón secundario */
+#about .btn-outline-secondary {
+  border-color: #6c757d; /* Color del borde */
+  color: #6c757d; /* Color del texto */
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#about .btn-outline-secondary:hover {
+  background-color: #6c757d; /* Color de fondo en hover */
+  color: white; /* Color de texto en hover */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  #about .display-5 {
+    font-size: 2rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+  }
+
+  #about .lead {
+    font-size: 1rem; /* Reducir el tamaño del texto de la descripción */
+  }
+}
