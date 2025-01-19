@@ -1,0 +1,27 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contents",
+    "info": {
+        "singularName": "content",
+        "pluralName": "contents",
+        "displayName": "content",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "nombre": {
+            "type": "string"
+        },
+        "texto": {
+            "type": "text"
+        },
+        "subcontents": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::subcontent.subcontent"
+        }
+    }
+}

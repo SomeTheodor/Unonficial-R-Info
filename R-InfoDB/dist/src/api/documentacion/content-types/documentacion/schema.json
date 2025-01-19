@@ -1,0 +1,21 @@
+{
+    "kind": "singleType",
+    "collectionName": "documentacions",
+    "info": {
+        "singularName": "documentacion",
+        "pluralName": "documentacions",
+        "displayName": "Documentacion",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "contents": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::content.content"
+        }
+    }
+}
