@@ -1,14 +1,15 @@
 import { Component, computed, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarService } from '../../../services/sidebar.service';
-@Component({
+import { Content } from '../../../interface/general';
+@ Component({
   selector: 'app-sidebar',
   imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  @Input() data: SidebarItem[] = [];
+  @Input() general: Content[] = [];
 
   constructor(private sidebarService: SidebarService) {}
 
@@ -25,9 +26,3 @@ export class SidebarComponent {
   });
 }
 
-// Interfaz para estructurar los datos
-export interface SidebarItem {
-  id: string;
-  nombre: string;
-  subtitulos: { id: string; nombre: string }[];
-}

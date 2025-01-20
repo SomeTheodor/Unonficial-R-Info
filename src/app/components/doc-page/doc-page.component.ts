@@ -5,7 +5,7 @@ import { ContentComponent } from './content/content.component';
 import { StrapiService } from '../../services/strapi.service';
 import { SidebarService } from '../../services/sidebar.service';
 import { CommonModule } from '@angular/common';
-
+import { ApiResponse, Content } from '../../interface/general';
 @Component({
   selector: 'app-doc-page',
   imports: [NavbarComponent, SidebarComponent, ContentComponent, CommonModule],
@@ -13,27 +13,33 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./doc-page.component.css']
 })
 export class DocPageComponent implements OnInit {
-  data: any[] = [];
+  contents: Content[] = [];  // Especificar el tipo de los contenidos
   isSmallScreen: boolean = window.innerWidth < 768;
 
   constructor(
-    public sidebarService: SidebarService, // Cambiado a 'public'
+    public sidebarService: SidebarService,
     private strapiService: StrapiService
   ) {}
 
   ngOnInit(): void {
-    this.strapiService.getData('titulos', { populate: 'subtitulos' }).subscribe({
+    this.strapiService.getData<ApiResponse<{ contents: Content[] }>>('documentacion?populate=contents.subcontents').subscribe({
       next: (response) => {
-        this.data = response.data.map((item: any) => ({
-          id: item.id,
-          nombre: item.nombre,
-          texto: item.texto,
-          subtitulos: item.subtitulos || [],
-        }));
+        // Asegúrate de que `contents` es un array antes de asignarlo
+        if (response.data && Array.isArray(response.data.contents)) {
+          this.contents = response.data.contents;
+          console.log(this.contents)
+        } else {
+          console.error('Unexpected data structure:', response.data);
+          this.contents = []; // Por seguridad, inicializa como un array vacío
+        }
       },
-      error: (err) => console.error('Error al cargar datos:', err),
+      error: (err) => {
+        console.error('Error fetching documentation content:', err);
+      },
     });
   }
+
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {

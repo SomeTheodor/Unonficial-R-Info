@@ -15,29 +15,32 @@
 
     <!-- Lista de títulos y subtítulos -->
     <ul class="list-unstyled ps-0">
-      <li class="mb-2" *ngFor="let title of data">
-        <button
-          class="btn btn-toggle d-flex align-items-center w-100 text-start rounded px-3 py-2"
-          data-bs-toggle="collapse"
-          [attr.data-bs-target]="'#collapse-' + title.id"
-          aria-expanded="false"
-        >
-          <i class="bi bi-folder me-2 text-primary"></i> {{ title.nombre }}
-        </button>
+      <li class="mb-2" *ngFor="let content of general">
+        <div >
+          <button
+            class="btn btn-toggle d-flex align-items-center w-100 text-start rounded px-3 py-2"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse-' + content.id"
+            aria-expanded="false"
+          >
+            <i class="bi bi-folder me-2 text-primary"></i> {{ content?.nombre }}
+          </button>
 
-        <div class="collapse ps-3" [id]="'collapse-' + title.id">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li *ngFor="let subtitle of title.subtitulos" class="mb-1">
-              <a
-                href="#"
-                class="d-flex align-items-center text-dark text-decoration-none rounded px-3 py-1 sidebar-link"
-              >
-                <i class="bi bi-dot me-2 text-secondary"></i> {{ subtitle.nombre }}
-              </a>
-            </li>
-          </ul>
+          <div class="collapse ps-3" [id]="'collapse-' + content.id">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li *ngFor="let subcontent of content?.subcontents" class="mb-1">
+                <a
+                  href="#"
+                  class="d-flex align-items-center text-dark text-decoration-none rounded px-3 py-1 sidebar-link"
+                >
+                  <i class="bi bi-dot me-2 text-secondary"></i> {{ subcontent?.nombre }}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </li>
     </ul>
+
   </div>
 </div>
