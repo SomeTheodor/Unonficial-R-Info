@@ -1,21 +1,23 @@
 <div class="container px-4 py-5">
   <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-    <div class="col d-flex flex-column align-items-start gap-2">
-      <h2 class="fw-bold text-body-emphasis">{{general?.content?.nombre}}</h2>
-      <p class="text-body-secondary">{{general?.content?.texto}}</p>
-      <a href="#" class="btn btn-primary btn-lg">Documentacion</a>
+    <div class="col d-flex flex-column align-items-center text-center gap-2">
+      <h2 class="fw-bold text-body-emphasis">{{ general?.content?.nombre }}</h2>
+      <p class="text-body-secondary">{{ general?.content?.texto }}</p>
+      <a class="btn btn-primary btn-lg px-4 gap-3" routerLink="/doc" routerLinkActive="active">Documentación</a>
     </div>
 
     <div class="col">
-      <div class="row row-cols-1 row-cols-sm-2 g-4" *ngFor="let contents of general?.content?.subcontents">
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-            <svg class="bi" width="1em" height="1em">
-              <use xlink:href="#collection" />
-            </svg>
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="col d-flex flex-column align-items-center text-center gap-3" *ngFor="let contents of general?.content?.subcontents">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-circle"
+            style="width: 60px; height: 60px; font-size: 2.5rem;"
+          >
+            <!-- Aquí puedes colocar un ícono de Bootstrap usando clases como "bi bi-star" -->
+            <i class="{{ contents.icon }}"></i>
           </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">{{contents.nombre}}</h4>
-          <p class="text-body-secondary">{{contents.texto}}</p>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">{{ contents.nombre }}</h4>
+          <p class="text-body-secondary">{{ contents.texto }}</p>
         </div>
       </div>
     </div>

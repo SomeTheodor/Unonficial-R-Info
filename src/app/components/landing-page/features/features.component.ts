@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { StrapiService } from '../../../services/strapi.service';
 import { ApiResponse, GeneralContentSolo } from '../../../interface/general';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-features',
-  imports: [CommonModule],
+  imports: [RouterModule, RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'
 })
