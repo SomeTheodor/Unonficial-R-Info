@@ -1,7 +1,7 @@
 <section id="faq" class="container py-5">
   <div class="text-center mb-5">
-    <h2>{{ general?.content?.nombre }}</h2>
-    <p class="text-muted">{{ general?.content?.texto }}</p>
+    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ general?.content?.titulo }}</h1>
+    <p class="lead fw-semi-bold">{{ general?.content?.texto }}</p>
   </div>
 
   <div class="accordion" id="faqAccordion">
@@ -11,7 +11,7 @@
           [attr.data-bs-target]="'#faq' + i"
           aria-expanded="false"
           [attr.aria-controls]="'faq' + i">
-          {{ item.nombre }}
+          {{ item.titulo }}
         </button>
       </h2>
       <div [id]="'faq' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'faq' + i + '-heading'" data-bs-parent="#faqAccordion">

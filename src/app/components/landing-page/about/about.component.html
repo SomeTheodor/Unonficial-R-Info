@@ -14,16 +14,12 @@
       <!-- Texto centrado a la derecha -->
       <div class="col-lg-6 d-flex flex-column align-items-center text-center text-lg-start">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-          {{general?.content?.nombre}}
+          {{general?.content?.titulo}}
         </h1>
         <p class="lead fw-semi-bold">{{general?.content?.texto}}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-center justify-content-lg-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-            Descargar
-          </button>
-          <button type="button" class="btn btn-outline-primary btn-lg px-4">
-            Documentación
-          </button>
+          <a class="btn btn-primary btn-lg px-4 gap-3" routerLink="/doc" routerLinkActive="active">Descargar</a>
+          <a class="btn btn-primary btn-lg px-4 gap-3" routerLink="/doc" routerLinkActive="active">Documentación</a>
         </div>
       </div>
     </div>

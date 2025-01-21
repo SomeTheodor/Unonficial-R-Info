@@ -1,8 +1,6 @@
 /* Estilo para el título */
 #about .display-5 {
   font-size: 3rem;
-  font-weight: bold;
-  color: #343a40;
   line-height: 1.2;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -12,7 +10,6 @@
 /* Estilo para el texto de la descripción */
 #about .lead {
   font-size: 1.3rem;
-  color: #697076;
   margin-bottom: 30px;
   line-height: 1.6;
   text-align: center;
@@ -42,21 +39,7 @@
   border-color: #0056b3;
 }
 
-#about .btn-outline-primary {
-  border-color: #6c757d;
-  color: #6c757d;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 50px;
-  transition: background-color 0.3s, color 0.3s;
-}
 
-#about .btn-outline-primary:hover {
-  background-color: #6c757d;
-  color: white;
-}
 
 /* Responsividad */
 @media (max-width: 768px) {
