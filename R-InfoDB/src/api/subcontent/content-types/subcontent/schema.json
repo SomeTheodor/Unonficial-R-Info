@@ -4,28 +4,30 @@
   "info": {
     "singularName": "subcontent",
     "pluralName": "subcontents",
-    "displayName": "subcontent"
+    "displayName": "subcontent",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "nombre": {
+    "titulo": {
       "type": "string"
     },
     "icon": {
       "type": "string"
     },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "texto": {
       "type": "text"

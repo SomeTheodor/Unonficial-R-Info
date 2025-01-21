@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "contents": {
+    "content_documents": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::content.content"
+      "target": "api::content-document.content-document"
     }
   }
 }

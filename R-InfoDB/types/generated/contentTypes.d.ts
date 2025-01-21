@@ -420,6 +420,41 @@ export interface ApiBotonBoton extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContentDocumentContentDocument
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'content_documents';
+  info: {
+    description: '';
+    displayName: 'contentDocument';
+    pluralName: 'content-documents';
+    singularName: 'content-document';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-document.content-document'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subcontent_documents: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subcontent-document.subcontent-document'
+    >;
+    texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContentContent extends Struct.CollectionTypeSchema {
   collectionName: 'contents';
   info: {
@@ -441,13 +476,13 @@ export interface ApiContentContent extends Struct.CollectionTypeSchema {
       'api::content.content'
     > &
       Schema.Attribute.Private;
-    nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     subcontents: Schema.Attribute.Relation<
       'oneToMany',
       'api::subcontent.subcontent'
     >;
     texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -466,7 +501,10 @@ export interface ApiDocumentacionDocumentacion extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    contents: Schema.Attribute.Relation<'oneToMany', 'api::content.content'>;
+    content_documents: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-document.content-document'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -654,9 +692,41 @@ export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSubcontentDocumentSubcontentDocument
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'subcontent_documents';
+  info: {
+    displayName: 'subcontentDocument';
+    pluralName: 'subcontent-documents';
+    singularName: 'subcontent-document';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subcontent-document.subcontent-document'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSubcontentSubcontent extends Struct.CollectionTypeSchema {
   collectionName: 'subcontents';
   info: {
+    description: '';
     displayName: 'subcontent';
     pluralName: 'subcontents';
     singularName: 'subcontent';
@@ -676,9 +746,9 @@ export interface ApiSubcontentSubcontent extends Struct.CollectionTypeSchema {
       'api::subcontent.subcontent'
     > &
       Schema.Attribute.Private;
-    nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1196,6 +1266,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::boton.boton': ApiBotonBoton;
+      'api::content-document.content-document': ApiContentDocumentContentDocument;
       'api::content.content': ApiContentContent;
       'api::documentacion.documentacion': ApiDocumentacionDocumentacion;
       'api::faq.faq': ApiFaqFaq;
@@ -1204,6 +1275,7 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::social.social': ApiSocialSocial;
+      'api::subcontent-document.subcontent-document': ApiSubcontentDocumentSubcontentDocument;
       'api::subcontent.subcontent': ApiSubcontentSubcontent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
