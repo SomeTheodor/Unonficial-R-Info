@@ -1,10 +1,10 @@
 {
     "kind": "collectionType",
-    "collectionName": "contents",
+    "collectionName": "content_documents",
     "info": {
-        "singularName": "content",
-        "pluralName": "contents",
-        "displayName": "content",
+        "singularName": "content-document",
+        "pluralName": "content-documents",
+        "displayName": "contentDocument",
         "description": ""
     },
     "options": {
@@ -18,10 +18,10 @@
         "texto": {
             "type": "text"
         },
-        "subcontents": {
+        "subcontent_documents": {
             "type": "relation",
             "relation": "oneToMany",
-            "target": "api::subcontent.subcontent"
+            "target": "api::subcontent-document.subcontent-document"
         }
     }
 }

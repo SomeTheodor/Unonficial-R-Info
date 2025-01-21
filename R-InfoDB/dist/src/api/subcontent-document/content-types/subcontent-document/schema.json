@@ -1,11 +1,10 @@
 {
     "kind": "collectionType",
-    "collectionName": "subcontents",
+    "collectionName": "subcontent_documents",
     "info": {
-        "singularName": "subcontent",
-        "pluralName": "subcontents",
-        "displayName": "subcontent",
-        "description": ""
+        "singularName": "subcontent-document",
+        "pluralName": "subcontent-documents",
+        "displayName": "subcontentDocument"
     },
     "options": {
         "draftAndPublish": true
@@ -15,22 +14,18 @@
         "titulo": {
             "type": "string"
         },
-        "icon": {
-            "type": "string"
+        "texto": {
+            "type": "text"
         },
         "img": {
-            "type": "media",
-            "multiple": false,
-            "required": false,
             "allowedTypes": [
                 "images",
                 "files",
                 "videos",
                 "audios"
-            ]
-        },
-        "texto": {
-            "type": "text"
+            ],
+            "type": "media",
+            "multiple": false
         }
     }
 }
