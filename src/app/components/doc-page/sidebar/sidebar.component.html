@@ -23,7 +23,7 @@
             [attr.data-bs-target]="'#collapse-' + content.id"
             aria-expanded="false"
           >
-            <i class="bi bi-folder me-2 text-primary"></i> {{ content?.nombre }}
+            <i class="bi bi-folder me-2 text-primary"></i> {{ content?.titulo }}
           </button>
 
           <div class="collapse ps-3" [id]="'collapse-' + content.id">
@@ -33,7 +33,7 @@
                   href="#"
                   class="d-flex align-items-center text-dark text-decoration-none rounded px-3 py-1 sidebar-link"
                 >
-                  <i class="bi bi-dot me-2 text-secondary"></i> {{ subcontent?.nombre }}
+                  <i class="bi bi-dot me-2 text-secondary"></i> {{ subcontent?.titulo }}
                 </a>
               </li>
             </ul>

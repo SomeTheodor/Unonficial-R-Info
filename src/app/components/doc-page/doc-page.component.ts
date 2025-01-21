@@ -22,22 +22,24 @@ export class DocPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.strapiService.getData<ApiResponse<{ contents: Content[] }>>('documentacion?populate=contents.subcontents').subscribe({
-      next: (response) => {
-        // Asegúrate de que `contents` es un array antes de asignarlo
-        if (response.data && Array.isArray(response.data.contents)) {
-          this.contents = response.data.contents;
-          console.log(this.contents)
-        } else {
-          console.error('Unexpected data structure:', response.data);
-          this.contents = []; // Por seguridad, inicializa como un array vacío
-        }
-      },
-      error: (err) => {
-        console.error('Error fetching documentation content:', err);
-      },
-    });
+    this.strapiService.getData<ApiResponse<{ content_documents: Content[] }>>('documentacion?populate=content_documents.subcontent_documents')
+      .subscribe({
+        next: (response) => {
+          // Verifica que `content_documents` exista y sea un array
+          if (response.data && Array.isArray(response.data.content_documents)) {
+            this.contents = response.data.content_documents;
+            console.log(this.contents);
+          } else {
+            console.error('Unexpected data structure:', response.data);
+            this.contents = []; // Inicializa como un array vacío para evitar errores
+          }
+        },
+        error: (err) => {
+          console.error('Error fetching documentation content:', err);
+        },
+      });
   }
+
 
 
 
